@@ -1,4 +1,4 @@
-from turtle import Turtle, Screen
+﻿from turtle import Turtle, Screen
 
 def draw_branch(turtle: Turtle, length, angle, start_point=(0,0)):
     
@@ -22,10 +22,14 @@ def draw_tree(turtle, length, angle, start_point=(0,0), order=3):
 if __name__ == "__main__":
     turtle = Turtle()
     turtle.hideturtle()
+    turtle.speed(0)
     window = Screen()
     window.bgcolor("white")
-    
+
+    order = int(input("Введіть порядок рекурсії: "))
+    angle = int(input("Дерево можна намалювати під будь-яким бажаним початковим кутом! Введіть кут, під яким хочете намалювати дерево (90 - стирчить нагору, 0 - лежить \"праворуч\"): "))
+
     start_point = (0, 0)
-    draw_tree(turtle, 100, 90, start_point, order=8)
+    draw_tree(turtle, 100, angle, start_point, order=order)
     
     window.mainloop()
